@@ -1,0 +1,50 @@
+# =============================================================================
+# .gitignore - WattOptima TN
+# Utilite : empecher Git de suivre les secrets, environnements, dependances,
+#           donnees brutes et modeles IA generes.
+# Lie a   : tout le depot (racine D:\WattOptima).
+# =============================================================================
+
+# --- Secrets (jamais commites ; seul .env.example est versionne) ---
+.env
+.env.*
+!.env.example
+
+# --- Python ---
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# --- Django ---
+db.sqlite3
+backend/media/
+backend/staticfiles/
+
+# --- IA : modeles serialises par client (regeneres par script d'entrainement) ---
+backend/ml_models/
+*.pkl
+*.joblib
+
+# --- Node / Angular ---
+node_modules/
+frontend/dist/
+frontend/.angular/
+npm-debug.log*
+
+# --- Donnees (non versionnees ; .gitkeep conserve les dossiers) ---
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# --- Systeme / editeur ---
+.vscode/
+Thumbs.db
+Desktop.ini
+*.log
+# --- Dossier de captures personnelles (non versionne) ---
+xxx-docs utiles/
